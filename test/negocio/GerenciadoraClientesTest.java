@@ -39,11 +39,26 @@ public class GerenciadoraClientesTest {
      * @date 09/11/2018
      */
     @Test
-    public void testPesquisaCliente() {  
+    public void testPesquisaClienteExistente() {  
         Cliente cliente = gerClientes.pesquisaCliente(idCliente1);
 
         assertThat(cliente.getId(), is(idCliente1));
         assertThat(cliente.getEmail(), is("gugafarias@gmail.com"));
+    }
+    
+    
+    /**
+     * Teste básico da pesquisa de um cliente que não exista
+     *
+     * @author Pedro Barros
+     * @date 09/11/2018
+     */
+    @Test
+    public void testPesquisaClienteInexistente() {  
+        Cliente cliente = gerClientes.pesquisaCliente(1001);
+
+        Assert.assertNull(cliente);
+        //assertThat(cliente.getEmail(), is("gugafarias@gmail.com"));
     }
 
     /**
@@ -53,12 +68,27 @@ public class GerenciadoraClientesTest {
      * @date 09/11/2018
      */
     @Test
-    public void testRemoveCliente() { 
+    public void testRemoveClienteExistente() { 
         boolean clienteRemovido = gerClientes.removeCliente(idCliente2);
 
         assertThat(clienteRemovido, is(true));
         assertThat(gerClientes.getClientesDoBanco().size(), is(idCliente1));
         Assert.assertNull(gerClientes.pesquisaCliente(idCliente2));
+    }
+    
+    
+     /**
+     * Teste básico da remoção de um cliente a partir do seu ID.
+     *
+     * @author Pedro Barros
+     * @date 09/11/2018
+     */
+    @Test
+    public void testRemoveClienteInexistente() { 
+        boolean clienteInexistente = gerClientes.removeCliente(1001);
+
+        Assert.assertFalse(clienteInexistente); 
+        assertThat(gerClientes.getClientesDoBanco().size(), is(2));
     }
     
     @After
