@@ -3,7 +3,7 @@ package negocio;
 import java.util.List;
 
 /**
- * Classe de neg�cio para realizar opera��es sobre os clientes do banco.
+ * Classe de negócio para realizar opera��es sobre os clientes do banco.
  * @author Pedro Barros
  */
 public class GerenciadoraClientes {
