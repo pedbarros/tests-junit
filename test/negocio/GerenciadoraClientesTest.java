@@ -29,7 +29,7 @@ public class GerenciadoraClientesTest {
         clientesDoBanco.add(cliente01);
         clientesDoBanco.add(cliente02);
 
-        gerClientes = new GerenciadoraClientes(clientesDoBanco);
+        gerClientes = new GerenciadoraClientes(clientesDoBanco); 
     }
 
     /**
@@ -63,7 +63,7 @@ public class GerenciadoraClientesTest {
     
     @After
     public void tearDown(){
-        gerClientes.limpa();
+        gerClientes.limpa(); 
     }
 
 }
