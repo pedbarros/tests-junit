@@ -13,12 +13,21 @@ public class GerenciadoraClientesTest {
 
     GerenciadoraClientes gerClientes;
 
+    /**
+     * Teste básico da pesquisa de um cliente a partir do seu ID.
+     *
+     * @author Pedro Barros
+     * @date 09/11/2018
+     */
     @Test
-    public void testPesquisaCliente() {
+    public void testPesquisaCliente() { 
 
+        int idCliente1 = 1;
+        int idCliente2 = 2;
+        /* =================== MONTANDO O CENÁRIO ======================*/
         // criando alguns clientes
-        Cliente cliente01 = new Cliente(1, "Gustavo Farias", 31, "gugafarias@gmail.com", 1, true);
-        Cliente cliente02 = new Cliente(2, "Felipe Augusto", 34, "felipeaugusto@gmail.com", 2, true);
+        Cliente cliente01 = new Cliente(idCliente1, "Gustavo Farias", 31, "gugafarias@gmail.com", 1, true);
+        Cliente cliente02 = new Cliente(idCliente2, "Felipe Augusto", 34, "felipeaugusto@gmail.com", 2, true);
 
         // inserindo os clientes criados na lista de clientes do banco
         List<Cliente> clientesDoBanco = new ArrayList<>();
@@ -27,18 +36,26 @@ public class GerenciadoraClientesTest {
 
         gerClientes = new GerenciadoraClientes(clientesDoBanco);
 
-        Cliente cliente = gerClientes.pesquisaCliente(1);
+        Cliente cliente = gerClientes.pesquisaCliente(idCliente1);
 
-        assertThat(cliente.getId(), is(1));
+        assertThat(cliente.getId(), is(idCliente1));
         assertThat(cliente.getEmail(), is("gugafarias@gmail.com"));
     }
 
+    /**
+     * Teste básico da remoção de um cliente a partir do seu ID.
+     *
+     * @author Pedro Barros
+     * @date 09/11/2018
+     */
     @Test
     public void testRemoveCliente() {
 
+        int idCliente1 = 1;
+        int idCliente2 = 2;
         // criando alguns clientes
-        Cliente cliente01 = new Cliente(1, "Gustavo Farias", 31, "gugafarias@gmail.com", 1, true);
-        Cliente cliente02 = new Cliente(2, "Felipe Augusto", 34, "felipeaugusto@gmail.com", 2, true);
+        Cliente cliente01 = new Cliente(idCliente1, "Gustavo Farias", 31, "gugafarias@gmail.com", 1, true);
+        Cliente cliente02 = new Cliente(idCliente2, "Felipe Augusto", 34, "felipeaugusto@gmail.com", 2, true);
 
         // inserindo os clientes criados na lista de clientes do banco
         List<Cliente> clientesDoBanco = new ArrayList<>();
@@ -47,11 +64,11 @@ public class GerenciadoraClientesTest {
 
         gerClientes = new GerenciadoraClientes(clientesDoBanco);
 
-        boolean clienteRemovido = gerClientes.removeCliente(2);
+        boolean clienteRemovido = gerClientes.removeCliente(idCliente2);
 
         assertThat(clienteRemovido, is(true));
-        assertThat(gerClientes.getClientesDoBanco().size(), is(1));
-        Assert.assertNull(gerClientes.pesquisaCliente(2));
+        assertThat(gerClientes.getClientesDoBanco().size(), is(idCliente1));
+        Assert.assertNull(gerClientes.pesquisaCliente(idCliente2));
     }
 
 }
