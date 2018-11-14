@@ -1,5 +1,6 @@
 package negocio;
 
+import model.ContaCorrente;
 import java.util.List;
 
 /**

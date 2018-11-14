@@ -1,5 +1,7 @@
 package negocio;
 
+import exception.IdadeNaoPermitidaException;
+import model.Cliente;
 import static org.junit.Assert.assertThat;
 import static org.hamcrest.CoreMatchers.*;
 

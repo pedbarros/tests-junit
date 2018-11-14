@@ -1,5 +1,6 @@
 package negocio;
 
+import model.ContaCorrente;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.*;
 
