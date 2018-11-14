@@ -1,5 +1,7 @@
 package negocio;
 
+import exception.IdadeNaoPermitidaException;
+import model.Cliente;
 import java.util.List;
 
 /**
